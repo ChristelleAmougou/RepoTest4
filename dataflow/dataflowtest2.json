@@ -1,0 +1,20 @@
+{
+	"name": "dataflowtest2",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"linkedService": {
+						"referenceName": "linkserviceblobstorage",
+						"type": "LinkedServiceReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [],
+			"transformations": [],
+			"script": "source(output(\n\t\t{Account Number} as string,\n\t\t{Air Booking Description} as string,\n\t\t{Airline Alliance} as string,\n\t\t{Back Office Tran ID} as string,\n\t\t{Booking Date} as date,\n\t\t{CO2e kg} as double,\n\t\t{Client Master Code Name} as string,\n\t\t{Client Name} as string,\n\t\t{Coupon Count} as short,\n\t\t{Coupon Service Class - Converted Description} as string,\n\t\t{Destination Airport Code} as string,\n\t\t{Issue Date} as date,\n\t\t{Issuing Country Name} as string,\n\t\tKilometers as short,\n\t\t{Origin Airport Code} as string,\n\t\t{Transaction Type} as string,\n\t\t{Travel Type Description} as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false,\n\tformat: 'excel',\n\tcontainer: 'testgitcontainer',\n\tfileName: 'ChristelleTest.xlsx',\n\tsheetName: '2021 Jan-Feb All columns Air Co',\n\tfirstRowAsHeader: true) ~> source1"
+		}
+	}
+}
